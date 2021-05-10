@@ -1,6 +1,7 @@
 <?php
 require('includes/connection.inc.php');
 ?>
+<title>Inventory Master</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <body style="text-align:center;">
     <a href="http://localhost/" style="text-decoration: none;"><h2 style="color: red;">Inventory Master</h2></a>

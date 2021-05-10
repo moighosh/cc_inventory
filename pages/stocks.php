@@ -18,6 +18,7 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 </style>
+<title>Inventory Master</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <body style="text-align:center;">
     <a href="http://localhost/" style="text-decoration: none;"><h2 style="color: red;">Inventory Master</h2></a>
@@ -28,11 +29,15 @@ tr:nth-child(even) {
     <a href="tickets.php" style="text-decoration: none;">Tickets</a>
     <br/>
     <br/>
+    <a href="add-stk.php"><button>Add Genesis Stock</button></a>
+    <br/>
+    <br/>
     <table style="width: 100%;">
         <tr>
             <th>Category</th>
             <th>Product</th>
             <th>Stock</th>
+            <th>Re-order Level</th>
             <th>Unit</th>
             <th>Added</th>
             <th>Updated</th>
@@ -65,6 +70,12 @@ tr:nth-child(even) {
                     $stk_out = (int)$fetch['stk_out'];
                     $stock = $stk_in - $stk_out;
                     echo $stock;
+                    ?></td>
+                    <td><?php
+                    $query = ("select * from stocks where pro_id='$id'");
+                    $result = mysqli_query($con, $query);
+                    $fetch = mysqli_fetch_assoc($result);
+                    echo $fetch['reorder'];
                     ?></td>
                     <td><?= $unit?></td>
                     <td><?= $added?></td>
