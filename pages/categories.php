@@ -25,7 +25,7 @@ tr:nth-child(even) {
     <a href="categories.php" style="text-decoration: none;">Categories</a>
     <a href="products.php" style="text-decoration: none;">Products</a>
     <a href="stocks.php" style="text-decoration: none;">Stocks</a>
-    <a href="sales.php" style="text-decoration: none;">Sales</a>
+    <a href="tickets.php" style="text-decoration: none;">Tickets</a>
     <br/>
     <br/>
     <a href="add-cat.php"><button>Add Category</button></a>
@@ -51,7 +51,7 @@ tr:nth-child(even) {
                     <td><?= $category?></td>
                     <td><?= $added?></td>
                     <td><?= $updated?></td>
-                    <td><a href="edit-cat.php?id=<?= $id?>">Edit</a>&nbsp;<a href="del-cat.php?id=<?= $id?>">Delete</a></td>
+                    <td><a href="edit-cat.php?id=<?= $id?>"><button style="background-color: green; color: white;">Edit</button></a>&nbsp;<a href="del-cat.php?id=<?= $id?>"><button style="background-color: red; color: black;">Delete</button></a></td>
                 </tr>
                 <?php
             }

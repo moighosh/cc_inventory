@@ -21,11 +21,11 @@ if(isset($_POST['submit'])){
     <a href="categories.php" style="text-decoration: none;">Categories</a>
     <a href="products.php" style="text-decoration: none;">Products</a>
     <a href="stocks.php" style="text-decoration: none;">Stocks</a>
-    <a href="sales.php" style="text-decoration: none;">Sales</a>
+    <a href="tickets.php" style="text-decoration: none;">Tickets</a>
     <br/>
     <br/>
     <form method="post">
-        Category name: <input type="text" name="category"/>
+        Category name: <input type="text" name="category" required/>
         <input type="submit" name="submit"/>
     </form>
     <?= $msg?>
