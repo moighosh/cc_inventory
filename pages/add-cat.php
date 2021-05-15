@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
 <title>Inventory Master</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <body style="text-align:center;">
-    <a href="http://localhost/" style="text-decoration: none;"><h2 style="color: red;">Inventory Master</h2></a>
+    <a href="<?= LINK?>" style="text-decoration: none;"><h2 style="color: red;">Inventory Master</h2></a>
     <hr>
     <a href="categories.php" style="text-decoration: none;">Categories</a>
     <a href="products.php" style="text-decoration: none;">Products</a>
