@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 10, 2021 at 06:40 AM
+-- Generation Time: May 17, 2021 at 01:42 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.3.28
 
@@ -39,13 +39,11 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `category`, `added`, `updated`) VALUES
-(2, 'Pre-rolled - brown', '2021-05-10 03:02:53', '2021-05-10 03:02:53'),
-(3, 'Pre-rolled - white', '2021-05-10 03:03:07', '2021-05-10 03:03:07'),
-(4, 'Non-rolled - white', '2021-05-10 03:03:22', '2021-05-10 07:21:08'),
-(5, 'Non-rolled - brown', '2021-05-10 03:03:30', '2021-05-10 07:21:01'),
-(8, 'Stationary', '2021-05-10 07:22:16', '2021-05-10 07:22:16'),
-(9, 'Raw materials - paper', '2021-05-10 07:22:39', '2021-05-10 07:22:39'),
-(10, 'Raw materials - polymer', '2021-05-10 07:22:49', '2021-05-10 07:22:49');
+(11, 'Pre-rolled - brown', '2021-05-10 11:34:57', '2021-05-10 11:34:57'),
+(12, 'Booklet - White', '2021-05-10 11:35:04', '2021-05-10 11:35:04'),
+(13, 'Raw materials - paper', '2021-05-10 12:26:50', '2021-05-10 12:26:50'),
+(14, 'Raw materials - polymer', '2021-05-10 12:26:57', '2021-05-10 12:26:57'),
+(15, 'Stationary', '2021-05-10 12:27:14', '2021-05-10 12:27:14');
 
 -- --------------------------------------------------------
 
@@ -67,8 +65,15 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `cat_id`, `product`, `unit`, `added`, `updated`) VALUES
-(11, 2, 'Bob Cones', 'Pcs', '2021-05-10 08:39:40', '2021-05-10 08:43:58'),
-(12, 4, 'Booklet - 3 Patti', 'Bndl', '2021-05-10 08:44:22', '2021-05-10 08:44:22');
+(13, 11, 'Bob Cones', 'Pcs', '2021-05-10 11:35:50', '2021-05-10 11:35:50'),
+(15, 15, 'Fevi-Gum', 'Ml', '2021-05-10 12:27:45', '2021-05-10 12:36:00'),
+(16, 14, 'Stopper', 'Pack', '2021-05-10 12:28:18', '2021-05-10 12:32:41'),
+(17, 14, 'Packet', 'Gram', '2021-05-10 12:28:35', '2021-05-10 12:43:08'),
+(18, 14, 'Straw', 'Pack', '2021-05-10 12:28:45', '2021-05-10 12:31:54'),
+(19, 13, 'A4 Paper - whilte', 'Rims', '2021-05-10 12:29:13', '2021-05-10 12:29:13'),
+(20, 13, 'A4 Paper - yellow', 'Pcs', '2021-05-10 12:29:26', '2021-05-10 12:29:26'),
+(21, 13, 'Brown Paper - Ajanta', 'Kgram', '2021-05-10 12:29:45', '2021-05-10 12:47:30'),
+(22, 12, '3 Patti', 'Pcs', '2021-05-15 00:58:12', '2021-05-15 00:58:12');
 
 -- --------------------------------------------------------
 
@@ -81,7 +86,7 @@ CREATE TABLE `stocks` (
   `pro_id` int(11) NOT NULL,
   `stk_in` int(11) NOT NULL,
   `stk_out` int(11) NOT NULL,
-  `reorder` int(11) NOT NULL,
+  `reorder` int(11) DEFAULT NULL,
   `added` datetime NOT NULL,
   `updated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -91,8 +96,16 @@ CREATE TABLE `stocks` (
 --
 
 INSERT INTO `stocks` (`id`, `pro_id`, `stk_in`, `stk_out`, `reorder`, `added`, `updated`) VALUES
-(1, 12, 850, 650, 25, '2021-05-10 09:15:43', '2021-05-10 09:38:06'),
-(2, 11, 15000, 0, 1000, '2021-05-10 09:16:34', '2021-05-10 09:16:34');
+(8, 14, 200, 102, 50, '2021-05-10 12:21:32', '2021-05-14 00:29:13'),
+(9, 13, 12000, 872, 1000, '2021-05-10 12:21:55', '2021-05-15 22:43:02'),
+(10, 15, 1000, 200, 200, '2021-05-10 12:35:49', '2021-05-10 12:36:15'),
+(11, 16, 50, 0, 10, '2021-05-10 12:42:05', '2021-05-10 12:42:05'),
+(12, 17, 1400, 0, 250, '2021-05-10 12:43:32', '2021-05-10 12:43:32'),
+(13, 18, 10, 0, 5, '2021-05-10 12:44:08', '2021-05-10 12:44:08'),
+(14, 19, 1, 0, 1, '2021-05-10 12:44:38', '2021-05-10 12:44:38'),
+(15, 21, 10, 0, 2, '2021-05-10 12:45:16', '2021-05-10 12:45:16'),
+(16, 20, 500, 0, 100, '2021-05-10 12:46:07', '2021-05-10 12:46:07'),
+(17, 22, 2940, 18, 600, '2021-05-15 00:58:36', '2021-05-15 22:43:45');
 
 -- --------------------------------------------------------
 
@@ -108,13 +121,6 @@ CREATE TABLE `tickets` (
   `added` datetime NOT NULL,
   `updated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `tickets`
---
-
-INSERT INTO `tickets` (`id`, `subject`, `body`, `status`, `added`, `updated`) VALUES
-(3, 'Test', 'This is a test.', 'OPEN', '2021-05-10 10:09:14', '2021-05-10 10:09:14');
 
 --
 -- Indexes for dumped tables
@@ -154,25 +160,25 @@ ALTER TABLE `tickets`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `stocks`
 --
 ALTER TABLE `stocks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tickets`
 --
 ALTER TABLE `tickets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
