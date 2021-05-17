@@ -1,8 +1,10 @@
 <?php
 require('includes/connection.inc.php');
 ?>
-<title>Inventory Master</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+<?php
+require('includes/common.inc.php');
+?>
 <body style="text-align:center;">
     <a href="<?= LINK?>" style="text-decoration: none;"><h2 style="color: red;">Inventory Master</h2></a>
     <hr>
@@ -42,3 +44,4 @@ require('includes/connection.inc.php');
         </div>
     </div>
 </body>
+</html>

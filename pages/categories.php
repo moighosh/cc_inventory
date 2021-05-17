@@ -18,8 +18,9 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 </style>
-<title>Inventory Master</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php
+require('../includes/common.inc.php');
+?>
 <body style="text-align:center;">
     <a href="<?= LINK?>" style="text-decoration: none;"><h2 style="color: red;">Inventory Master</h2></a>
     <hr>
